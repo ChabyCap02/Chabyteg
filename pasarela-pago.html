@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasarela de Pago</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/pasarela.css">
+    <!-- Agrega tus estilos y scripts aquí si es necesario -->
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="container-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                </ul>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar...">
+                    <button onclick="searchProducts()">Buscar</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <button id="back-button">Regresar</button>
+
+    <div id="cart-summary"></div>
+    
+    <h1>Por favor, complete los datos de pago:</h1>
+    <form id="paymentForm">
+        <!-- Campos del formulario (número de tarjeta, fecha de caducidad, etc.) -->
+        <label for="cardNumber">Número de Tarjeta:</label>
+        <input type="text" id="cardNumber" name="cardNumber" required><br>
+
+        <!-- Otros campos del formulario -->
+
+        <div id="container-direccionForm">
+            <h2>Direccion de Envio</h2>
+            <div id="direccionForm">
+                <div class="campo">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" name="direccion" required>
+                </div>
+                <div class="campo">
+                    <label for="descripcionDireccion">Descripción de Dirección:</label>
+                    <input type="text" id="descripcionDireccion" name="descripcionDireccion" required>
+                </div>
+                <div class="campo">
+                    <label for="numero">Número:</label>
+                    <input type="text" id="numero" name="numero" required>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit">Realizar Pago</button>
+    </form>
+
+    <!-- Agrega tus scripts aquí si es necesario -->
+    <script  type="module" src="script/pasarela-pago.js"></script>
+    
+</body>
+</html>

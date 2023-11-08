@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Ecommerce</title>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="container-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                </ul>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Buscar...">
+                    <button onclick="searchProducts()">Buscar</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Slides or carrusel  -->
+    <div class="carrusel">
+        <div class="slide">
+            <h2>Producto Destacado 1</h2>
+            <p>¡Descubre nuestro increíble producto destacado! ¡No te lo pierdas!</p>
+        </div>
+        <div class="slide">
+            <h2>Promoción Especial</h2>
+            <p>Aprovecha nuestra promoción especial por tiempo limitado. ¡Compra ahora y ahorra!</p>
+        </div>
+        <!-- Agrega más slides según sea necesario -->
+    </div>
+
+    <!-- Modal de carrito de compras -->
+    <button id="openCartButton" class="cart-button">
+        <i class="fas fa-shopping-cart"></i> Ver Carrito
+    </button> 
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <ul id="cartItemsModal" class="cart  ">
+                <!-- Contenido del carrito se mostrará aquí -->
+            </ul>
+            <div id="totalAmountModal"></div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <h1>Productos</h1>
+        <div class="products" id="products">
+            <!-- Productos se cargarán aquí dinámicamente con JavaScript -->
+        </div>
+        <h2>Carrito de Compras</h2>
+        <ul id="cart" class="cart">
+            <!-- Carrito de compras se mostrará aquí -->
+        </ul>
+
+
+        
+        
+
+        <div class="cart-summary">
+            <h2>Resumen de la Compra</h2>
+            <div id="totalAmount"></div>
+        </div>
+    </div>
+
+    <script src="/script/products.js"></script>
+    <script src="/script/carrusel.js"></script>
+    <script src="/script/indexed-db.js"></script>
+   
+</body>
+
+</html>
