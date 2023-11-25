@@ -6,14 +6,14 @@
 }
 html{
     scroll-behavior: smooth !important;
-    behavior : 'smooth'
+    behavior : 'smooth';    
+    
 }
 
 
 header {
     background-color: #333;
     color: white;
-    padding: 20px;
     text-align: center;
 }
 .header-content h1{
@@ -88,6 +88,9 @@ li a{
         width: 100%; /* Hacer que la caja de búsqueda ocupe todo el ancho disponible */
     }
 }
+
+/*  */
+
 /* Media screen  */
 
 section {
@@ -117,14 +120,57 @@ section {
 
 #proyectos{
     background-color: rgb(162, 162, 162);
-
+    
+}
+#proyectos h2{
+    color: white;
+    font-size: 3em;
+    padding: 5px;
+    margin: 10px;
+    box-shadow: 0 0 8px rgb(123, 123, 123);
+}
+.container-proyects{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+    animation: myAnim;
 }
 
 
 .descripción-container{
+
     color: white;
-    font-weight: bolder
-;
+    font-weight: bolder;
+}
+
+
+/* Animaciones */
+@keyframes myAnim {
+	0%,
+	50%,
+	100% {
+		opacity: 1;
+	}
+
+	25%,
+	75% {
+		opacity: 0;
+	}
+}
+.container-proyects .card:hover{
+    
+    box-shadow:0 0 10px #ffffff;
+    animation: myAnim;
+    transform: translateY(-5%);
+
+}
+
+.descripción-container .card img{
+    object-fit: cover;
+    width: 100%;
+    height: 30px;
 }
     
 
@@ -141,44 +187,9 @@ section {
 }
 
 
-.content-description{
-    padding: 30px;
-    color: white;
-    height: 100vh;
-    background-color: #7ebdff;
-    display: flex;
-}
-.content-description div{
-    width: 400px;
-    margin: 30px;
-} 
 
-/* Informacion header */
-.card {
-    width: 150px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 20px !important;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin: 10px;
-}
-.card-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    color: white;
-    background-color: #007BFF;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s ;
-}
-.card-button:hover {
-    background-color: #0056b3;
-}
+
+
 
 /* derscripcion */
 
@@ -200,7 +211,7 @@ section {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
     position: relative;
-    transition: all 0.3s ease;
+   
     color: #93a8bf;
 }
 
@@ -221,21 +232,21 @@ section {
 
 .extra {
     visibility: hidden;
-    width: 340px;
+    width: 600px;
     background-color: #0162c9;
     color: #fff;
     text-align: center;
-    padding: 10px 30px;
+    padding: 30px 30px;
     border-radius: 6px;
     box-shadow: 0px 10px 10px  rgba(128, 128, 128, 0.847);
     padding: 5px;
     position: absolute;
     z-index: 1;
     top: 75%; 
-    left: 90px;
-    margin-left: -110px;
+    left: 10px;
+    margin-left: -170px;
     opacity: 0;
-    transition: opacity 0.3s;
+    
     font-size: 1.3em;
 }
 
@@ -243,115 +254,8 @@ section {
 
 
 
-/* Carrusel */
-.slide-container {
-    
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
-    position: relative;
-}
-
-.slide {
-    padding: 0;
-    display: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.slide img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
-
-.slide.fade {
-    animation: fade 5s infinite;
-}
-
-@keyframes fade {
-0%, 100% { opacity: 0; }
-20%, 80% { opacity: 1; }
-}
-/* .carousel {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    animation: carousel-animation 10s infinite linear;
-    transition: opacity 0.3s;
-
-}
-
-.carousel-image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    display: block;
-    transition: opacity 0.3s;
-
-}
- */
-
-/* Section Proyecto */
 
 
-.proyecto {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: space-around;
-    background-color: #555555;
-    margin: 30px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    transition: all 0.3s;
-    align-items: center;
-    color: white;
-
-}
-
-.proyecto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 10px rgba(0, 0, 0);
-    background-color: #165599;
-
-    
-}
-
-.proyecto img {
-    width: 160; /* Tamaño del icono */
-    height: 160px; /* Tamaño del icono */
-    margin-right: 10px;
-    border-radius: 10px;
-}
-
-.proyecto h3 {
-
-    margin-bottom: 10px;
-    font-size: 20px;
-    color: rgb(0, 0, 0);
-}
-
-.proyecto p {
-    max-width: 400px;
-    font-size: 16px;
-    color: #dcdcdc;
-}
-
-.proyecto a {
-    text-decoration: none;
-    color: rgb(236, 236, 236);
-
-}
-
-.proyecto a:hover {
-    text-decoration: underline;
-}
-/* Section Proyecto */
 
 
 footer {
@@ -406,7 +310,9 @@ footer {
 */
 #container-contactos{
     width:120%;
-    padding: 0;
+    padding: 20px;
+    color: rgb(214, 214, 214);
+
 }   
 #container-contactos a{
     font-size: 1.3em;
@@ -435,3 +341,90 @@ footer {
     color: #007bff;
 }
 
+
+
+
+/* Comments */
+/* Comments */
+/* Comments */
+/* Comments */
+/* Comments */
+
+
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+
+/* Timeline holder */
+ul.timeline {
+    list-style-type: none;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+ /* Timeline vertical line */
+ul.timeline:before {
+    content: ' ';
+    background: #fff;
+    display: inline-block;
+    position: absolute;
+    left: 16px;
+    width: 4px;
+    height: 100%;
+    z-index: 400;
+    border-radius: 1rem;
+}
+
+li.timeline-item {
+    margin: 20px 0;
+}
+
+/* Timeline item arrow */
+.timeline-arrow {
+    border-top: 0.5rem solid transparent;
+    border-right: 0.5rem solid #fff;
+    border-bottom: 0.5rem solid transparent;
+    display: block;
+    position: absolute;
+    left: 2rem;
+}
+
+/* Timeline item circle marker */
+li.timeline-item::before {
+    content: ' ';
+    background: #ddd;
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    left: 11px;
+    width: 14px;
+    height: 14px;
+    z-index: 400;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+ 
+
+/*
+*
+* ==========================================
+* FOR DEMO PURPOSES
+* ==========================================
+*
+*/
+
+
+.cd__main p{
+	padding: 20% 10%;
+	font-size: 200%;
+	font-family: arial;
+	color: #333333;
+}
+#retype{
+	color: #3333DD;
+	border-right: solid 0.1em #333377;
+}

@@ -1,0 +1,179 @@
+/* CARRITO */
+.cart {
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.cart-summary {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+/* Boton remover del carrito */
+.remove-button {
+    background-color: #ff3333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-button:hover {
+    background-color: #ff6666;
+}
+
+/* Boton pasarela de pago */
+.checkout-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.checkout-button:hover {
+    background-color: #45a049;
+}
+
+/* MODAL CARRITO */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    width: 80%;
+    
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* Button Modal */
+#openCartButton{
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    margin: 10px;
+    float: right;
+}
+
+
+
+#checkout-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50; /* Color de fondo cuando está habilitado */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+}
+
+#checkout-button:disabled {
+    background-color: #ccc; /* Color de fondo cuando está deshabilitado */
+    cursor: not-allowed;
+}
+
+/*  PRODUCTS */
+/*  PRODUCTS */
+/*  PRODUCTS */
+
+
+/* Estilos formulario agregar productos */
+
+.add-product{
+    margin: 10px;
+    padding: 30px;
+}
+
+
+/* Products other */
+
+.badge23 {
+    display: inline-block;
+    padding: 0.30em .4em;
+    font-size: 75%;
+    font-weight: 300;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    color: #fff;
+    background-color: #28a745;
+}
+
+.rating-review {
+    color: #5b5b5b;
+        font-size: 12px;
+
+}
+
+.product_price {
+    display: block;
+    margin: 5px;
+
+    font-size: 30px;
+    font-weight: 400;
+    
+    margin-bottom: 0px;
+    color: #080808;
+    clear: left;
+}   
+
+.list-group-item {
+    margin: 10px;
+    position: relative;
+    display: block;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+.list-group-item  img{
+    object-fit: cover;
+}
+
+.seperator{
+        background: #a2a2efb8;
+}

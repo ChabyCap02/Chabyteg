@@ -1,0 +1,379 @@
+
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/card.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+
+    <link rel="stylesheet" href="../styles/products.css">
+    
+
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Ecommerce</title>
+    </head>
+    
+    <body>  
+    
+    
+    <!-- Nav -->
+    <!-- Nav -->
+    <!-- Nav -->
+    <div id="nav">
+
+    </div>
+    <script src="modulos/nav.js">
+    
+    </script>
+    <!-- Nav -->
+    <!-- Nav -->
+    <!-- Nav -->
+
+    
+
+        
+    
+
+
+
+    <!-- Agregar productos -->
+    <!-- Agregar productos -->
+    <!-- Agregar productos -->
+    <!-- Agregar productos -->
+    <div class="container mt-5">
+        <h2 class="mb-4">Lista de Productos</h2>
+    
+        <div id="formContainer" class="row">
+            <!-- Los formularios se agregarán aquí dinámicamente -->
+        </div>
+    
+        <!-- Modal para agregar productos -->
+        <div class="modal fade addProductModal hide" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addProductModalLabel">Agregar Producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Contenido del formulario de agregar producto -->
+                        <form id="addProductForm">
+                            <div class="mb-3">
+                                <label for="productName" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="productName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productPrice" class="form-label">Precio</label>
+                                <input type="number" class="form-control" id="productPrice" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productDescription" class="form-label">Descripción</label>
+                                <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="productImage" class="form-label">Imagen</label>
+                                <input type="file" class="form-control" id="productImage" accept="image/*" onchange="previewImage()">
+                                <img id="imagePreview" class="mt-2" style="max-width: 100%; max-height: 200px;" alt="Vista Previa">
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" >Agregar Producto</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addProductModal"  data-bs-dismiss="modal" aria-label="Close">
+            Agregar Producto
+            
+        </button>
+    
+        <script>
+            
+    
+            function generateForms() {
+                const formContainer = document.getElementById('formContainer');
+                formContainer.innerHTML = '';
+    
+                products.forEach(product => {
+                    // Generar tarjetas para cada producto (código similar al anterior)
+                });
+            }
+    
+            document.getElementById('addProductForm').addEventListener('submit', (event) => {
+                event.preventDefault();
+    
+                const newProduct = {
+                    id: products.length + 1,
+                    name: document.getElementById('productName').value,
+                    price: parseFloat(document.getElementById('productPrice').value),
+                    description: document.getElementById('productDescription').value,
+                    imageURL: document.getElementById('imagePreview').src // Usar la URL de la vista previa
+                };
+    
+                products.push(newProduct);
+
+    
+                localStorage.setItem('products', JSON.stringify(products));
+    
+                const addProductModal = new bootstrap.Modal(document.getElementById('addProductModal'));
+                addProductModal.hide();
+    
+                generateForms();
+
+                document.getElementById('productName').value = ''
+                parseFloat(document.getElementById('productPrice').value) = ''
+                document.getElementById('productDescription').value = ''
+                document.getElementById('imagePreview').src = ''
+            });
+    
+            function previewImage() {
+                const input = document.getElementById('productImage');
+                const preview = document.getElementById('imagePreview');
+                const file = input.files[0];
+    
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        preview.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+    
+            generateForms();
+        </script>
+    
+    </div>
+        
+    
+    
+
+        <!-- formulario de eliminación -->
+        <!-- formulario de eliminación -->
+        <!-- formulario de eliminación -->
+        <!-- formulario de eliminación -->
+        <div class="container mt-5">
+            <h2 class="mb-4">Formulario de Productos</h2>
+        
+            <div id="formContainer" class="row">
+                <!-- Los formularios se agregarán aquí dinámicamente -->
+            </div>
+        
+            <!-- Modal para la edición de productos -->
+            <!-- Modal para la edición de productos -->
+            <!-- Modal para la edición de productos -->
+            <!-- Modal para la edición de productos -->
+            <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editModalLabel">Editar Producto</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Contenido del formulario de edición -->
+                            <form id="editForm">
+                                <div class="mb-3">
+                                    <label for="editName" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="editName" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editPrice" class="form-label">Precio</label>
+                                    <input type="number" class="form-control" id="editPrice" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editDescription" class="form-label">Descripción</label>
+                                    <textarea class="form-control" id="editDescription" rows="3" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal para la edición de productos -->
+            <!-- Modal para la edición de productos -->
+            <!-- Modal para la edición de productos -->
+            <!-- Modal para la edición de productos -->
+
+            <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        
+            <script>
+                const products = JSON.parse(localStorage.getItem('products')) || [
+    { id: 1, name: 'Mouse HP', price: 10000,imageURL: '../img/products/mousehp.jfif', description: 'Adaptado a tus movimientos Su diseño eficaz hace de este mouse un elemento cómodo, con una gran experiencia de uso para aquellas personas que buscan seguridad en cada click. La funcionalidad al alcance de tu mano El sistema de detección de movimiento óptico te permitirá mover el cursor de una manera más precisa y sensible que en los sistemas tradicionales.'},
+    { id: 2, name: 'Mouse Logitech', price: 10000,imageURL: '../img/products/mouselogitech.jpg' , description: 'Logitech diseña productos y experiencias que ocupan un lugar cotidiano en la vida de las personas, poniendo foco en la innovación y la calidad. Su objetivo es crear momentos verdaderamente únicos y significativos para sus usuarios. Los mouses Logitech se adaptan a la forma de tu mano para proporcionarte horas de comodidad. Sin necesidad de mover el brazo para deslizar el cursor, tu mano se fatigará menos. Son ideales para cualquier espacio de trabajo y quienes tienen la mesa llena de diversos objetos.'},
+    { id: 3, name: 'Teclado HP', price: 20000,imageURL: '../img/products/tecladohp.jpg', description: 'ste teclado HP es el mejor complemento para hacer todo tipo de actividades. Es cómodo y práctico al momento de redactar documentos, navegar y hacer búsquedas por internet, ya sea en tu trabajo o en la comodidad del hogar.' },
+    { id: 4, name: 'Teclado Logitech', price: 20000,imageURL: '../img/products/tecladologi.png' , description: 'Innovadores en diseño y tecnología, Logitech se encarga de brindar la mejor experiencia de uso para sus usuarios. Sus teclados resaltan por ser resistentes y muy de buena calidad, por lo que podrás disfrutarlos por un largo tiempo..'},
+    { id: 5, name: 'Teclado y Mouse hp', price: 30000,imageURL: '../img/products/mouseytecladohp.webp' , description: 'El combo de teclado y mouse HP es perfecto para ayudarte a desarrollar tus actividades diarias. Esta combinación está adaptada para realizar distintas tareas, ya sean laborales, escolares o de cualquier índole.'},
+    { id: 6, name: 'Mouse gamer Redragon', price: 45000,imageURL: '../img/products/mouseredragon.webp' , description: 'El mouse de juego te ofrecerá la posibilidad de marcar la diferencia y sacar ventajas en tus partidas. Su conectividad y sensor suave ayudará a que te desplaces rápido por la pantalla.'},
+    { id: 7, name: 'Mouse gamer Logitech inalambrico', price: 65000,imageURL: '../img/products/logitechmousegamer.webp' , description: 'Solo debes colocar el receptor en un puerto USB de la computadora y ya puedes empezar a usarlo. No hace falta emparejar el mouse ni descargar software para utilizarlo.'},
+
+    // Servicios
+    { id:11, name: 'Servicio Tecnico', price: 20000,imageURL: '../img/products/serviciotec.jfif', description: 'Descripción detallada del Producto 5.' },
+    { id: 12, name: 'Servicio Domicilio', price: 5000,imageURL: '../img/products/domicilio.png' , description: 'Descripción detallada del Producto 5.'}
+
+];
+
+                function generateForms() {
+                    const formContainer = document.getElementById('formContainer');
+        
+                    products.forEach(product => {
+                        const cardContainer = document.createElement('div');
+                        cardContainer.className = 'col-md-4 mb-4';
+        
+                        const card = document.createElement('div');
+                        card.className = 'card';
+        
+                        const imageElement = document.createElement('img');
+                        imageElement.src = product.imageURL;
+                        imageElement.alt = product.name;
+                        imageElement.className = 'card-img-top';
+                        card.appendChild(imageElement);
+        
+                        const cardBody = document.createElement('div');
+                        cardBody.className = 'card-body';
+        
+                        const nameLabel = document.createElement('h5');
+                        nameLabel.className = 'card-title';
+                        nameLabel.textContent = product.name;
+                        cardBody.appendChild(nameLabel);
+        
+                        const priceLabel = document.createElement('p');
+                        priceLabel.className = 'card-text';
+                        priceLabel.textContent = `Precio: $${product.price}`;
+                        cardBody.appendChild(priceLabel);
+        
+                        const descriptionLabel = document.createElement('p');
+                        descriptionLabel.className = 'card-text';
+                        descriptionLabel.textContent = product.description;
+                        cardBody.appendChild(descriptionLabel);
+        
+                        const editButton = document.createElement('button');
+                        editButton.className = 'btn btn-primary';
+                        editButton.textContent = 'Editar';
+                        editButton.addEventListener('click', () => {
+                            document.getElementById('editName').value = product.name;
+                            document.getElementById('editPrice').value = product.price;
+                            document.getElementById('editDescription').value = product.description;
+        
+                            // Configura el evento de enviar el formulario de edición
+                            document.getElementById('editForm').onsubmit = (event) => {
+                                event.preventDefault();
+        
+                                // Actualiza la información del producto en el array
+                                product.name = document.getElementById('editName').value;
+                                product.price = parseFloat(document.getElementById('editPrice').value);
+                                product.description = document.getElementById('editDescription').value;
+        
+                                // Cierra el modal
+                                const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+        
+                                // Vuelve a generar los formularios después de editar el producto
+                                formContainer.innerHTML = '';
+                                localStorage.setItem('products', JSON.stringify(products));
+                                generateForms();
+                                
+                                editModal.hide();
+                                
+                            };
+        
+                            // Abre el modal
+                            const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+                            editModal.show();
+                        });
+                        cardBody.appendChild(editButton);
+        
+                        const deleteButton = document.createElement('button');
+                        deleteButton.className = 'btn btn-danger ms-2';
+                        deleteButton.textContent = 'Eliminar';
+                        deleteButton.addEventListener('click', () => {
+                            const index = products.indexOf(product);
+                            if (index !== -1) {
+                                products.splice(index, 1);
+                                formContainer.innerHTML = '';
+                                generateForms();
+                                localStorage.setItem('products', JSON.stringify(products));
+                            }
+                        });
+                        cardBody.appendChild(deleteButton);
+        
+                        card.appendChild(cardBody);
+                        cardContainer.appendChild(card);
+                        formContainer.appendChild(cardContainer);
+                    });
+                }
+        
+                generateForms();
+            </script>
+        
+        </div>
+        
+        <!-- Agrega el enlace al archivo JS de Bootstrap y jQuery al final del body -->
+        <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        
+                    <style>
+                        
+                    </style>
+        
+            
+        
+
+    <!-- Agregar productos -->
+      <!-- Agregar productos -->
+      <!-- Agregar productos -->
+      <!-- Agregar productos -->
+    
+    
+    
+
+
+     <!-- FOOTER -->
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+
+    <div id="footer">
+
+    </div>
+    <script src="modulos/footer.js">
+    
+    </script>
+    
+        <!-- FOOTER -->
+        <!-- FOOTER -->
+        <!-- FOOTER -->
+        <!-- FOOTER -->
+   
+
+
+
+        <script src="../script/products.js"></script>
+    <script src="../script/carrusel.js"></script>
+    <script src="../script/indexed-db.js"></script>
+    
+       
+        <script src="../script/products.js"></script>
+
+        
+        <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+    
+    </body>
+    
+    </html>b
+    

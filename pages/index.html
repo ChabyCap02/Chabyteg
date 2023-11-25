@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+    <!-- HEAD-->
+    <!-- HEAD -->
+    <!-- HEAD -->
+<div id="head">
+
+</div>
+<script src="modulos/head.js">
+
+</script>
+    <!-- HEAD-->
+    <!-- HEAD -->
+    <!-- HEAD -->
+
+
+
+<body data-bs-theme="auto">  
+     <!-- Nav -->
+    <!-- Nav -->
+    <!-- Nav -->
+    <div id="nav">
+
+    </div>
+    <script src="modulos/nav.js">
+    
+    </script>
+    <!-- Nav -->
+    <!-- Nav -->
+    <!-- Nav -->
+
+
+
+
+
+    <!-- CARRUSEL HERMOSO -->
+    <!-- CARRUSEL HERMOSO -->
+    <!-- CARRUSEL HERMOSO -->
+    <!-- CARRUSEL HERMOSO -->
+
+    <div class=" card-img-overlay position-relative overflow-hidden">
+        <div class="d-flex min-vh-100" lc-helper="video-bg">
+            <video style="z-index:1;object-fit: cover; object-position: 50% 50%;" class="position-absolute w-100 min-vh-100" autoplay="" preload="" muted="" loop="" playsinline="">
+                <!-- adjust object-position to tweak cropping on mobile -->
+                <source src="../img/video/computer.mp4" type="video/mp4">
+            </video>
+            <div style="z-index:2" class="align-self-center text-center text-light col-md-8 offset-md-2">
+                <div class="lc-block mb-4">
+                    <div editable="rich">
+                        <h1 class="display-1 fw-bolder">El apasionante mundo de los sistemas informaticos</h1>
+                    </div>
+                </div>
+
+                <div class="lc-block">
+                    <div editable="rich">
+                        <p class="lead">Este increible mundo de la tegnologia y los sistemas que tanto nos apacionas.</p>
+
+                        <p class="lead">Desliza hacia abajo para saber mas.
+
+                        </p>
+
+                    </div>
+                </div>
+
+                <div class="lc-block">
+                    <svg onclick="this.closest('section').nextElementSibling.scrollIntoView({ behavior: 'smooth'  });" width="4em" height="4em" viewBox="0 0 16 16" lc-helper="svg-icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg" >
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                        <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"></path>
+                    </svg>
+
+                    <!-- for Safari support only, remove if you want  -->
+                    <script async="" src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js"></script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- CARRUSEL HERMOSO -->
+    <!-- CARRUSEL HERMOSO -->
+    <!-- CARRUSEL HERMOSO -->
+    <!-- CARRUSEL HERMOSO -->
+    
+    
+
+
+
+
+    
+
+
+
+
+    <!-- Descripcion -->
+    <!-- Descripcion -->
+    <!-- Descripcion -->
+
+    <div class=" container d-flex align-items-center justify-content-center position-relative flex-wrap mt-5 ">
+        <h2 style="font-weight: bolder;font-size: 3.5em; width: 2000px; height: 200px; position: relative;top: 0px;" >UNITECNICA ES <br><span id="retype" style="font-size: 1.3em;">ASOMBROSO.</span></h2>
+
+        <script>
+            var retype = {
+            // ARRAY: 'retypePhrases' contains the words that will be switched
+            //		  The tool replaces the word contained within the element with the ID of 'retype'
+            //		  It works cleaner if neighboring words have different first letters.
+            //		  Spaces in phrases can cause a hiccup. Best practice to keep phrases as single words.
+            retypePhrases: [
+                'ACTUALIZADO',
+                'INTERACTIVO.',
+                'FUNCIONAL.',
+                'TEGNOLOGICO.',
+                'PROGRESIVO.',
+                'LO MEJOR.'
+            ],
+            index       : -1,
+            elem        : document.getElementById('retype'),
+            start       : function(){
+                var _this = this;
+                setTimeout( function(){
+                    _this.deleteLetter();
+                }, 2000 ); // Delay the start of a new word by 3 seconds
+            },// END retype.start()
+            deleteRepeat: function(){
+                this.deleteLetter();
+            },// END retype.deleteRepeat()
+            deleteLetter: function(){
+                var newWord = this.elem.innerHTML;
+                if( newWord.length > 0 ){
+                    newWord = newWord.substring(0, newWord.length - 1);
+                    var _this = this;
+                    setTimeout( function(){
+                        _this.elem.innerHTML = newWord;
+                        _this.deleteRepeat();
+                    }, 75 );
+                }else{
+                    this.newLetter();
+                }// END if( newWord.length > 0 )
+            },// END retype.deleteLetter()
+            newRepeat   : function(){
+                this.newLetter();
+            },// END retype.newRepeat()
+            newLetter   : function(){
+                var newWord = this.elem.innerHTML;
+                if( newWord.length === 0 ){
+                    this.index++;
+                    if( this.index >= this.retypePhrases.length ){
+                        this.index = 0;
+                    }
+                }// END if( newWord.length === 0 )
+                var newLetters = this.retypePhrases[ this.index ];
+                if( newLetters.length > newWord.length ){
+                    newLetters = newLetters.substring(0, ( newWord.length + 1 ) );
+                    var _this = this;
+                    // Add a slight random variation in retype time to make the letter typing seem more 'human'
+                    var time = Math.round( Math.random() * 100 ) + 100;
+                    setTimeout( function(){
+                        _this.elem.innerHTML = newLetters;
+                        _this.newLetter();
+                    }, time );
+                }else{
+                    this.start();
+                    // Yep, this makes the retype an infinite loop
+                }// END if( newLetters.length > newWord.length )
+            }// END retype.newLetter()
+        };
+
+        retype.start();
+        </script>
+
+            <!-- Animacion -->
+      <div class="card d-flex position-relative flex-column"  >
+          <div class='imgContainer'>
+              <img src='../img/wallpaper/code.jpg'>
+          </div>
+          <h2>Desarrollo de Páginas Web</h2>
+          <div class="content" >
+              <p>En un mercado globalizado, tener una presencia en línea robusta es esencial. El desarrollo de páginas web bien diseñadas y funcionales no solo mejora la visibilidad de una empresa, sino que también proporciona una plataforma para la interacción con clientes y socios. Desde el diseño estético hasta la usabilidad, nuestros conocimientos nos permiten crear sitios web atractivos y altamente funcionales que cautivan a la audiencia.</p>
+          </div>
+      </div>
+
+      <div class="card d-flex position-relative flex-column">
+          <div class='imgContainer'>
+                <img src='../img/wallpaper/serveres.jpg'>
+              
+          </div>
+              <h2>Montaje de Servidores</h2>
+          <div class="content">
+              <p>Los servidores forman la columna vertebral de las operaciones empresariales modernas. Saber cómo montar y gestionar servidores de manera eficiente garantiza un flujo de datos seguro y sin interrupciones. Esta habilidad se traduce en una mayor confiabilidad de los servicios en línea, almacenamiento de datos seguro y acceso remoto, lo que es esencial en un mundo empresarial que nunca duerme.</p>
+          </div>
+      </div>
+
+      <div class="card d-flex position-relative flex-column">
+          <div class='imgContainer'>
+                <img src='../img/wallpaper/helpdesk.jpg'>
+          </div>
+          <h2>Instalación de Software y Hardware</h2>
+
+          <div class="content">
+              <p>La correcta instalación de software y hardware es esencial para el rendimiento óptimo de los equipos de cómputo. Desde sistemas operativos hasta aplicaciones especializadas, nuestros conocimientos nos permiten seleccionar y implementar soluciones que se alinean perfectamente con las necesidades de la empresa. Además, la habilidad para instalar hardware, desde tarjetas gráficas hasta dispositivos de almacenamiento avanzados, asegura que los equipos funcionen a su máxima capacidad.</p>
+          </div>
+
+          
+      </div>
+
+        <div class="card d-flex position-relative flex-column">
+            <div class='imgContainer'>
+                <img src='../img/wallpaper/servicioalclienteadistancia.webp'>
+            </div>
+            <h2>Soporte Técnico Presencial o Remotamente</h2>
+
+            <div class="content">
+                <p>El soporte técnico presencial implica que un representante capacitado de tu empresa se reúna personalmente con quien solicitó ayuda. Las reparaciones necesarias se llevan a cabo con herramientas físicas y suelen ser más complejas. Por otro lado, el soporte técnico remoto consiste en una asistencia para ayudar al usuario a resolver cualquier tipo de problema con su computadora a través de largas distancias por medio de muchos tipos de contacto; la más común es la línea telefónica, la mayoría de las compañías que venden hardware o software, ofrecen servicio técnico por teléfono u otras formas online como e-mails o sitios web</p>
+            </div>
+        </div>
+
+        <div class="card d-flex position-relative flex-column">
+            <div class='imgContainer'>
+                <img src='../img/wallpaper/seguridadinformatica.webp '>
+
+                
+            </div>
+            <h2>Seguridad Informática</h2>
+
+            <div class="content">
+                <p>Este servicio se enfoca en la protección de sistemas informáticos y datos contra amenazas externas. Los técnicos de seguridad informática pueden implementar medidas de seguridad como firewalls, antivirus, sistemas de detección de intrusiones y sistemas de autenticación de usuarios</p>
+            </div>
+        </div>
+
+        <style>
+            
+            @keyframes show{
+                from{
+                    opacity: 0;
+                    scale: 25%;
+                }
+                to{
+                    opacity: 1;
+                    scale: 100%;
+                }
+            }
+
+            .card{
+                view-timeline-name: --card;
+                view-timeline-axis: block;
+
+                animation-timeline: --card;
+                animation-name: show;
+                animation-range: entry 25% cover 50%;
+                animation-fill-mode: both;
+
+                
+            }
+            
+        </style>
+
+  </div>
+
+    <!-- Descripcion -->
+    <!-- Descripcion -->
+    <!-- Descripcion -->
+
+
+   
+    <!-- Proyedctos realizados -->
+
+    
+
+    
+    
+
+
+    
+
+    <!-- Informacion De Contacto -->
+    <section id="contacto">
+        
+        <!-- Informacion de contactos -->
+        <div id="container-contactos">
+            <h2>Contacto</h2>
+            <p>Puedes contactarme en: <a href="chabycap@gmail.com">chabycap@gmail.com</a> o en mis redes sociales</p>
+
+            <div class="red-social">
+                <img src="../img/logos/Instagram.webp" alt="Instagram">
+                <a href="https://www.instagram.com/tuusuario/" target="_blank">Instagram</a>
+            </div>
+            <div class="red-social">
+                <img src="../img/logos/Facebook_Logo_2023.png" alt="Facebook">
+                <a href="https://www.facebook.com/tuusuario/" target="_blank">Facebook</a>
+            </div>
+            <div class="red-social">
+                <img src="../img/logos/github.png" alt="GitHub">
+                <a href="https://github.com/ChabyCap02" target="_blank">GitHub</a>
+            </div>
+            <div class="red-social">
+                <img src="../img/logos/likedin.png" alt="LinkedIn">
+                <a href="https://www.linkedin.com/in/tuusuario/" target="_blank">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+
+    <div id="footer">
+
+    </div>
+    <script src="modulos/footer.js">
+    
+    </script>
+    
+        <!-- FOOTER -->
+        <!-- FOOTER -->
+        <!-- FOOTER -->
+        <!-- FOOTER -->
+   
+
+
+    
+
+    <script>
+        AOS.init();
+    </script>
+    <!-- Agrega el enlace a Bootstrap JS y Popper.js (necesarios para el funcionamiento de algunos componentes de Bootstrap) -->
+    <!-- Agrega el enlace a Bootstrap JS y Popper.js (necesarios para el funcionamiento de algunos componentes de Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    </body>
+    
+    </html>

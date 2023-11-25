@@ -1,296 +1,34 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-/* CARRUSEL SLIDES */
-.carrusel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 50vh;
-    overflow: hidden;
-    position: relative;
-    background:url('/img/products/wallpaper.jpg');
-}
-
-.slide {
+#mastercard-logo{
+    width: 100px;
     text-align: center;
-    padding: 50px;
-    background-color: #004d80;
-    color: #ffffff;
-    width: 100vw;
-    transition: transform 0.5s ease;
 }
 
-.slide h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
+body{
+    margin: 0  !important;
+    padding: 0  !important;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-.slide p {
-    font-size: 20px;
+@keyframes show{
+    from{
+        opacity: 0;
+        scale: 25%;
+    }
+    to{
+        opacity: 1;
+        scale: 100%;
+    }
 }
 
-/* Agrega estilos adicionales según sea necesario */
+.card{
+    view-timeline-name: --card;
+    view-timeline-axis: block;
 
-.active {
-    transform: translateX(0);
-}
+    animation-timeline: --card;
+    animation-name: show;
+    animation-range: entry 25% cover 50%;
+    animation-fill-mode: both;
 
-.inactive-left,
-.inactive-right {
-    transform: translateX(-100vw);
-}
-
-/* ... (estilos adicionales según sea necesario) ... */
-/*  PRODUCT */
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.product {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: center;
-    width: 200px;
-    position: relative;
-}
-.product-button{
-    background-color: #ff6600;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 16px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.product-button:hover {
-    background-color: #ff8533;
-}
-
-.product img {
-    max-width: 100%; /* Asegura que la imagen no se extienda más allá del contenedor padre */
-    height: 100px; /* Permite que la imagen se ajuste proporcionalmente */
-    object-fit: cover;
-}
-
-.product-description {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 10px;
-    z-index: 1;
-}
-
-.product:hover .product-description {
-    display: block;
-}
-
-
-
-/* CARRITO */
-.cart {
-    list-style: none;
-    padding: 0;
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.cart-summary {
-    margin-top: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-}
-
-/* Boton remover del carrito */
-.remove-button {
-    background-color: #ff3333;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 6px 12px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.remove-button:hover {
-    background-color: #ff6666;
-}
-
-/* Boton pasarela de pago */
-.checkout-button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.checkout-button:hover {
-    background-color: #45a049;
-}
-
-
-
-
-
-/* Barra de navegacion */
-
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-}
-
-.container-nav {
-    max-width: 800px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-list {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-list li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.nav-list li a:hover {
-    color: #ff6600;
-}
-
-.search-box {
-    display: flex;
-    align-items: center;
-}
-
-#searchInput {
-    margin: 0 30px;
-    padding: 8px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.search-box button {
-    padding: 8px 20px;
-    background-color: #ff6600;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.search-box button:hover {
-    background-color: #ff8533;
-}
-
-/* MODAL CARRITO */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    border-radius: 8px;
-    width: 80%;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-/* Button Modal */
-.cart-button {
-    margin: 5px;
-    float: right;
-    background-color: #ff6600;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.cart-button i {
-    margin-right: 10px;
-}
-
-.cart-button:hover {
-    background-color: #ff8533;
-}
-
-
-#checkout-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #4CAF50; /* Color de fondo cuando está habilitado */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
-}
-
-#checkout-button:disabled {
-    background-color: #ccc; /* Color de fondo cuando está deshabilitado */
-    cursor: not-allowed;
+    
 }
